@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import { getQuestions, setVote } from "../../utils/fetchquestions";
+import { getDetails, getQuestions, setVote } from "../../utils/fetchquestions";
 
 const QuestionDetail = ({ questions }) => {
   const [selected, setSelected] = useState({});
@@ -76,17 +76,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const requestOptions = {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  };
-
   const id = params.slug;
-  const data = await fetch(
-    "https://polls.apiblueprint.org/questions/" + id,
-    requestOptions
-  );
-  const questions = await data.json();
+  const questions = await getDetails(id);
 
   return {
     props: {
