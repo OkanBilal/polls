@@ -4,7 +4,7 @@ import Link from "next/link";
 const QuestionsCard = (item) => {
   return (
     <div
-      className="cursor-pointer bg-blue-100 p-4 mb-4 w-96 rounded hover:bg-blue-200 
+      className="cursor-pointer bg-blue-100 p-4 mb-4 w-full sm:w-96 rounded hover:bg-blue-200 
       hover:transform transition duration-200 ease-in-out"
     >
       <Link href={item.url} passHref>
