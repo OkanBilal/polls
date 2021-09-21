@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Layout } from "../components/layout";
 import Head from "next/head";
+import { createQuestion } from "../utils/fetchquestions";
 
 const CreateQuestion = () => {
   const [question, setQuestion] = useState("");
@@ -13,14 +13,7 @@ const CreateQuestion = () => {
 
   const submitQuestion = async (e) => {
     e.preventDefault();
-    const url = "https://polls.apiblueprint.org/questions";
-    const requestOptions = {
-      method: "POST",
-      body: JSON.stringify(newQuestion),
-      headers: { "Content-Type": "application/json" },
-    };
-    const res = await fetch(url, requestOptions);
-    const data = await res.json();
+    const data = await createQuestion(newQuestion)
     console.log(data);
   };
 
@@ -29,7 +22,6 @@ const CreateQuestion = () => {
       <Head>
         <title>Create New Question</title>
       </Head>
-      <Layout>
         <form onSubmit={submitQuestion}>
           <div className="flex flex-col mb-12 items-start">
             <label className="mb-2">New Question</label>
@@ -62,7 +54,6 @@ const CreateQuestion = () => {
             Submit Question
           </button>
         </form>
-      </Layout>
     </>
   );
 };

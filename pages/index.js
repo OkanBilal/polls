@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Layout } from "../components/layout";
 import QuestionCard from "../components/questioncard";
+import { getQuestions } from "../utils/fetchquestions";
 
 const Home = ({ questions }) => {
   return (
@@ -10,7 +10,6 @@ const Home = ({ questions }) => {
         <title>Questions</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
       <Link href="/createquestion" passHref>
           <button className=" bg-blue-100 p-3 rounded mb-8 hover:bg-blue-200">
             New Question
@@ -23,7 +22,6 @@ const Home = ({ questions }) => {
             );
           })}
         </ul>
-      </Layout>
     </>
   );
 };
@@ -31,13 +29,7 @@ const Home = ({ questions }) => {
 export default Home;
 
 export async function getServerSideProps() {
-  const requestOptions = {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  };
-  const url = "https://polls.apiblueprint.org/questions";
-  const res = await fetch(url,  requestOptions );
-  const data = await res.json();
+ const data = await getQuestions()
 
   if (!data) {
     return {
