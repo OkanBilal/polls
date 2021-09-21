@@ -11,7 +11,11 @@ const Home = ({ questions }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-
+      <Link href="/createquestion" passHref>
+          <button className=" bg-blue-100 p-3 rounded mb-8 hover:bg-blue-200">
+            New Question
+          </button>
+        </Link>
         <p className="text-2xl mb-4">Questions</p>
         <ul>
           {questions.map((item, index) => {
