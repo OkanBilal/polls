@@ -15,4 +15,4 @@ $ npm run dev
 - [React](https://reactjs.org)
 - [Next](https://nextjs.org)
 - [TailwindCSS](https://tailwindcss.com)
-- [Pollsapi](https://pollsapi.docs.apiary.io
+- [Pollsapi](https://pollsapi.docs.apiary.io)
