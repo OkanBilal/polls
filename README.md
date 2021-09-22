@@ -1,4 +1,4 @@
-#  pollsapi
+#  Pollsapi Example
 
 
 ## Running Locally
@@ -9,6 +9,8 @@ $ cd polls
 $ npm install
 $ npm run dev
 ```
+
+Then open https://localhost:3000.
 
 ## Tools
 
