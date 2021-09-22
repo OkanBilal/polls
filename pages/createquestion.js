@@ -6,6 +6,7 @@ const CreateQuestion = () => {
   const [question, setQuestion] = useState("");
   const [choices, setChoices] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const newQuestion = {
     question: question,
@@ -15,6 +16,7 @@ const CreateQuestion = () => {
   const submitQuestion = async (e) => {
     e.preventDefault();
     const data = await createQuestion(newQuestion);
+    setSuccessMessage("You created new question.");
     console.log(data);
   };
 
@@ -35,6 +37,11 @@ const CreateQuestion = () => {
       >
         <div className="flex flex-col mb-8 items-start">
           <label className="mb-2">New Question</label>
+          {successMessage && (
+            <p className="bg-green-400 p-2  mb-8 text-sm text-white w-56 rounded">
+              {successMessage}
+            </p>
+          )}
           <input
             value={question}
             onChange={(e) => setQuestion(e.target.value)}

@@ -5,12 +5,13 @@ import { getDetails, getQuestions, setVote } from "../../utils/fetchquestions";
 const QuestionDetail = ({ questions }) => {
   const [selected, setSelected] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const submitVote = async (e) => {
     e.preventDefault();
     const data = await setVote(selected);
     setErrorMessage("");
-    console.log(data);
+    setSuccessMessage(`You voted ${data.choice}.`);
   };
 
   const isValid = selected.length > 0;
@@ -25,7 +26,13 @@ const QuestionDetail = ({ questions }) => {
       <Head>
         <title>Question Detail</title>
       </Head>
-      <p className="text-2xl font-semibold ">{questions.question}</p>
+      <p className="text-2xl font-semibold mb-4">{questions.question}</p>
+
+      {successMessage && (
+        <p className="bg-green-400 p-2 text-sm text-white w-56 rounded">
+          {successMessage}
+        </p>
+      )}
       <form onSubmit={(e) => (isValid ? submitVote(e) : handleSubmitError(e))}>
         {questions.choices.map((item, index) => {
           return (
