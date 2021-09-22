@@ -66,7 +66,7 @@ const CreateQuestion = () => {
         </div>
         <button
           type="submit"
-          className=" bg-blue-100 mb-4 p-2 rounded hover:bg-blue-200 w-48"
+          className=" box-hover mb-4 p-2 w-48"
         >
           Submit Question
         </button>

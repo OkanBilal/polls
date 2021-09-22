@@ -47,13 +47,13 @@ const QuestionDetail = ({ questions }) => {
                 value={item.url}
                 onChange={(e) => setSelected(e.target.value)}
               />
-              <label for="html">{item.choice}</label>
+              <label>{item.choice}</label>
             </div>
           );
         })}
         <button
           type="submit"
-          className=" bg-blue-100 p-2 mb-4 rounded hover:bg-blue-200"
+          className="box-hover p-2 mb-4 "
         >
           Vote
         </button>

@@ -11,7 +11,7 @@ const Home = ({ questions }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Link href="/createquestion" passHref>
-          <button className=" bg-blue-100 p-2 rounded mb-8 hover:bg-blue-200">
+          <button className=" box-hover p-2 mb-8 ">
             New Question
           </button>
         </Link>
